@@ -15,8 +15,8 @@ Finding Representative Interpretations on Convolutional Neural Networks
 ## Setting
 
 - Consider image classification using CNNs with RELU activation functions
-- $\cal{X}$: the space of images
-- $C$: the number of classes
+- $$\cal{X}$$: the space of images
+- $$C$$: the number of classes
 - $F:\mathcal{X}\rightarrow\mathbb{R}^C$: a trained CNN, and $Class(x)=\argmax_iF_i(x)$
 - a set of reference images $R\subseteq\mathcal{X}$
 - $\psi(x)$: the feature map produced by the last convolutional layer of $F$
