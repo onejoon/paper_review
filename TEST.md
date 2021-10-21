@@ -38,7 +38,7 @@ description: >-
       → $$|P(x)\cap D(x)|=0$$ where $$D(x)=\{x'\in R\;|\;Class(x')\neq Class(x)\}$$
 * Co-clustering problem
 
-$$\max_{P(x)\subseteq\mathcal{P}}|P(x)\cap R|$$
+$$\max_{P(x)\subseteq\mathcal{P}}|P(x)\cap R|\ f(x)<g_i(x)$$
 
 
 
