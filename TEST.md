@@ -61,5 +61,6 @@ $$\max_{P(x)\subseteq\mathcal{P}}|P(x)\cap R|\\
 ### Ranking Similar Images 
 *- Semantic distance $$Dist(x.x')=\sum_{\mathbf{h}\in P(x)}\Big\vert \langle \overrightarrow{W}_\mathbf{h},\psi(x)\rangle -\langle \overrightarrow{W}_\mathbf{h},\psi(x')\rangle \Big\vert$$ 
 *- $$\overrightarrow{W}_\mathbf{h}$$ is the normal vector of the hyperplane of a linear boundary $$\mathbf{h}\in P(x)$$ - rank the images covered by $$P(x)$$ according to their semantic distance to $$x$$ in ascending order 
-## Experiments ![Untitled](%5BReview%5D%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%202.png) ---
-$$
+## Experiments 
+![Untitled](%5BReview%5D%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%202.png) ---
+
