@@ -19,23 +19,23 @@ description: >-
 * Consider image classification using CNNs with RELU activation functions
 * $$\cal{X}$$: the space of images
 * $$C$$: the number of classes
-* $F:\mathcal{X}\rightarrow\mathbb{R}^C$: a trained CNN, and $Class(x)=\argmax\_iF\_i(x)$
-* a set of reference images $R\subseteq\mathcal{X}$
-* $\psi(x)$: the feature map produced by the last convolutional layer of $F$
-* $\Omega={\psi(x);|;x\in\mathcal{X} }$ the space of feature maps
-* $G:\Omega\rightarrow\mathbb{R}^C$, the mapping from the feature map $\psi(x)$ to $Class(x)$
-* $\mathcal{P}$: the set of the linear boundaries (hyperplanes) of $G$
+* $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: a trained CNN, and $$Class(x)=\argmax\_iF\_i(x)$$
+* a set of reference images $$R\subseteq\mathcal{X}$$
+* $$\psi(x)$$: the feature map produced by the last convolutional layer of $$F$$
+* $$\Omega={\psi(x);|;x\in\mathcal{X} }$$ the space of feature maps
+* $$G:\Omega\rightarrow\mathbb{R}^C$$, the mapping from the feature map $$\psi(x)$$ to $$Class(x)$$
+* $$\mathcal{P}$$: the set of the linear boundaries (hyperplanes) of $$G$$
 
 ### Problem
 
 * Finding representative interpretations
-  * to find a subset of the linear boundaries $P(x)\subseteq\mathcal{P}$ with the largest representativeness
-  *   Condition 1: maximize the representativeness of $P(x)$
+  * to find a subset of the linear boundaries $$P(x)\subseteq\mathcal{P}$$ with the largest representativeness
+  *   Condition 1: maximize the representativeness of $$P(x)$$
 
-      → maximize $|P(x)\cap R|$
+      → maximize $$|P(x)\cap R|$$
   *   Condition 2: avoid covering images in different classes
 
-      → $|P(x)\cap D(x)|=0$ where $D(x)={x'\in R;|;Class(x')\neq Class(x)}$
+      → $$|P(x)\cap D(x)|=0$$ where $$D(x)={x'\in R;|;Class(x')\neq Class(x)}$$
 * Co-clustering problem
 
 $$$
