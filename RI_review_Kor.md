@@ -10,22 +10,21 @@ description: >-
 
 ## 1. Problem definition
 
-* 최근 다양한 영역에서 딥러닝 기반의 인공지능 모델들이 성공적인 성능을 보이고 있지만,&#x20;
-* Despite the success of deep learning models on various tasks, there is a lack of interpretability to understand the decision logic behind deep convolutional neural networks (CNNs).
-* It is important to develop representative interpretations of a CNN to reveal the common semantics data that contribute to many closely related predictions.
-* How can we find such representative interpretations of a trained CNN?
+* 최근 다양한 영역에서 딥러닝 기반의 인공지능 모델들이 성공적인 성능을 보이고 있지만, Deep convolutional neural networks(CNNs)의 의사결정 과정에 대한 해석은 아직 부족하다. 이에 대한 충분한 해석성이 제공되어야 딥러닝 모델들을 신뢰가능하게 만들 수 있을 것이다.
+* 이 논문에서는 비슷한 예측을 갖는 관련 높은 데이터들을 대표하는 common semantics를 알아내기 위해 representative interpretations를 찾고자 한다. 즉, representative interpretations는 CNN의 의사결정 과정에서 구분되는 대표적인 특징 그룹을 보여준다.
+* 어떻게 학습된 CNN으로부터 이러한 representative interpretations를 찾을 수 있을까?
 
-### Setting
+### Notation
 
-* Consider image classification using CNNs with ReLU activation functions
-* $$\cal{X}$$: the space of images
-* $$C$$: the number of classes
-* $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: a trained CNN, and $$Class(x)=\argmax_i F_i(x)$$
-* a set of reference images $$R\subseteq\mathcal{X}$$
-* $$\psi(x)$$: the feature map produced by the last convolutional layer of $$F$$
-* $$\Omega=\{\psi(x)\;|\;x\in\mathcal{X} \}$$ the space of feature maps
-* $$G:\Omega\rightarrow\mathbb{R}^C$$, the mapping from the feature map $$\psi(x)$$ to $$Class(x)$$
-* $$\mathcal{P}$$: the set of the linear boundaries (hyperplanes) of $$G$$
+* 이미지 분류 문제에서 학습된 ReLU activation function을 사용하는 CNN 모델을 생각해보자.
+* $$\cal{X}$$: 이미지 공간
+* $$C$$: 이미지 클래스의 수
+* $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: 학습된 CNN, $$Class(x)=\argmax_i F_i(x)$$
+* Reference images의 집합 $$R\subseteq\mathcal{X}$$
+* $$\psi(x)$$: $$F$$의 마지막 convolutional layer로부터 생성된 feature map
+* $$\Omega=\{\psi(x)\;|\;x\in\mathcal{X} \}$$ feature map 공간
+* $$G:\Omega\rightarrow\mathbb{R}^C$$, feature map $$\psi(x)$$를 $$Class(x)$$로 매핑하는 함수
+* $$\mathcal{P}$$: $$G$$의 linear boundaries(hyperplanes)의 집합
 
 ### Problem
 
