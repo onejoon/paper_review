@@ -44,8 +44,8 @@ $$
 ## 2. Motivation 
 ### Related Work 
 ### Idea 
-*- Find the linear decision boundaries of the convex polytopes that encode the decision logic of a trained CNN 
-*- Convert the co-clustering problem into a submodular cost submodular cover (SCSC) problem 
+* Find the linear decision boundaries of the convex polytopes that encode the decision logic of a trained CNN 
+* Convert the co-clustering problem into a submodular cost submodular cover (SCSC) problem 
 
 ## 3. Method 
 ### Submodular Cost Submodular Cover problem 
@@ -53,4 +53,37 @@ $$
 $$
 \max_{P(x)\subseteq\mathcal{Q}}|P(x)\cap R|\\ \mathsf{s.t.}\quad|P(x)\cap D(x)|\leq\delta
 $$ 
-*- sample a subset of linear boundaries $$\cal Q$$ from $$\cal P$$ \*- due to sampling, the images covered in the same convex polytope may not be predicted by $$F$$ as the same class → $$\delta$$ \*- We can apply a greedy algorithm for a SCSC problem. ![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%201.png) ### Ranking Similar Images \*- Semantic distance $$Dist(x.x')=\sum_{\mathbf{h}\in P(x)}\Big\vert \langle \overrightarrow{W}_\mathbf{h},\psi(x)\rangle -\langle \overrightarrow{W}_\mathbf{h},\psi(x')\rangle \Big\vert$$ \*- $$\overrightarrow{W}_\mathbf{h}$$ is the normal vector of the hyperplane of a linear boundary $$\mathbf{h}\in P(x)$$ - rank the images covered by $$P(x)$$ according to their semantic distance to $$x$$ in ascending order ## Experiments ![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%202.png) ---
+* sample a subset of linear boundaries $$\cal Q$$ from $$\cal P$$ 
+* due to sampling, the images covered in the same convex polytope may not be predicted by $$F$$ as the same class 
+  → $$\delta$$ \*- We can apply a greedy algorithm for a SCSC problem. 
+  ![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%201.png) 
+
+### Ranking Similar Images 
+* Semantic distance 
+  $$
+  Dist(x.x')=\sum_{\mathbf{h}\in P(x)}\Big\vert \langle \overrightarrow{W}_\mathbf{h},\psi(x)\rangle -\langle \overrightarrow{W}_\mathbf{h},\psi(x')\rangle \Big\vert
+  $$ 
+ * $$\overrightarrow{W}_\mathbf{h}$$ is the normal vector of the hyperplane of a linear boundary $$\mathbf{h}\in P(x)$$ 
+ * rank the images covered by $$P(x)$$ according to their semantic distance to $$x$$ in ascending order 
+
+## 4. Experiment & Result
+![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%202.png)
+
+### Experimental setup
+
+### Result
+
+## 5. Conclusion
+
+### Take home message
+
+## Author / Reviewer information
+
+### Author
+
+### Reviewer
+
+## Reference & Additional materials
+
+
+---
