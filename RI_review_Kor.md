@@ -10,13 +10,14 @@ description: >-
 
 ## 1. Problem definition
 
+* 최근 다양한 영역에서 딥러닝 기반의 인공지능 모델들이 성공적인 성능을 보이고 있지만,&#x20;
 * Despite the success of deep learning models on various tasks, there is a lack of interpretability to understand the decision logic behind deep convolutional neural networks (CNNs).
 * It is important to develop representative interpretations of a CNN to reveal the common semantics data that contribute to many closely related predictions.
 * How can we find such representative interpretations of a trained CNN?
 
 ### Setting
 
-* Consider image classification using CNNs with RELU activation functions
+* Consider image classification using CNNs with ReLU activation functions
 * $$\cal{X}$$: the space of images
 * $$C$$: the number of classes
 * $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: a trained CNN, and $$Class(x)=\argmax_i F_i(x)$$
