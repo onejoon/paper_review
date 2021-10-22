@@ -19,10 +19,10 @@ description: >-
 * Consider image classification using CNNs with RELU activation functions
 * $$\cal{X}$$: the space of images
 * $$C$$: the number of classes
-* $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: a trained CNN, and $$Class(x)=\argmax\_iF\_i(x)$$
+* $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: a trained CNN, and $$Class(x)=\argmax_i F_i(x)$$
 * a set of reference images $$R\subseteq\mathcal{X}$$
 * $$\psi(x)$$: the feature map produced by the last convolutional layer of $$F$$
-* $$\Omega={\psi(x);|;x\in\mathcal{X} }$$ the space of feature maps
+* $$\Omega=\{\psi(x)\;|\;x\in\mathcal{X} \}$$ the space of feature maps
 * $$G:\Omega\rightarrow\mathbb{R}^C$$, the mapping from the feature map $$\psi(x)$$ to $$Class(x)$$
 * $$\mathcal{P}$$: the set of the linear boundaries (hyperplanes) of $$G$$
 
