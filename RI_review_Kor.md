@@ -6,7 +6,7 @@ description: >-
 
 # Finding Representative Interpretations on Convolutional Neural Networks \[Kor]
 
-한국어로 쓰인 리뷰를 읽으려면 여기를 누르세요.
+[English version](RI\_review\_Eng.md) of this article is available.
 
 ## 1. Problem definition
 
@@ -55,7 +55,7 @@ There are various types of existing interpretation methods for CNNs.
    * Such interpretations are not representative due to high sensitivity to the input noise.
 2. Model approximation methods
    * Approximate a deep neural network locally or globally with an interpretable agent model.
-   * Most of those methods perform poorly on modern CNNs trained on complicated data.&#x20;
+   * Most of those methods perform poorly on modern CNNs trained on complicated data.
 3. Conceptual interpretation methods
    * identify a set of concepts that contribute to the predictions on a pre-defined group of conceptually similar images.
    * These methods require sophisticated customization on deep neural networks.
