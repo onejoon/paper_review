@@ -28,6 +28,8 @@ description: >-
 
 ### Problem
 
+* Representative Interpretation이란?
+  * x에 대한 representative interpretation은&#x20;
 * Finding representative interpretations
   * to find a subset of the linear boundaries $$P(x)\subseteq\mathcal{P}$$ with the largest representativeness
   *   Condition 1: maximize the representativeness of $$P(x)$$
