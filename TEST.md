@@ -48,6 +48,22 @@ $$
 
 ### Related Work
 
+There are various types of existing interpretation methods for CNNs.
+
+1. Gradient-baed methods
+   * Compute and visualize the gradient of the score of a predicted class w.r.t. an input image.
+   * Such interpretations are not representative due to high sensitivity to the input noise.
+2. Model approximation methods
+   * Approximate a deep neural network locally or globally with an interpretable agent model.
+   * Most of those methods perform poorly on modern CNNs trained on complicated data.&#x20;
+3. Conceptual interpretation methods
+   * identify a set of concepts that contribute to the predictions on a pre-defined group of conceptually similar images.
+   * These methods require sophisticated customization on deep neural networks.
+4. Example-based methods
+   * Find exemplar images to interpret the decision of a deep neural network.
+   * Prototype-based methods summarize the entire model using a small number of instances as prototypes.
+   * The selection of prototypes considers little about the decision process of the model.
+
 ### Idea
 
 * Find the linear decision boundaries of the convex polytopes that encode the decision logic of a trained CNN
