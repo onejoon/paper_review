@@ -16,7 +16,8 @@ description: >-
 
 ### Notation
 
-* 이미지 분류 문제에서 학습된 ReLU activation function을 사용하는 CNN 모델을 생각해보자.
+이미지 분류 문제에서 학습된 ReLU activation function을 사용하는 CNN 모델을 생각해보자.
+
 * $$\cal{X}$$: 이미지 공간
 * $$C$$: 이미지 클래스의 수
 * $$F:\mathcal{X}\rightarrow\mathbb{R}^C$$: 학습된 CNN, $$Class(x)=\argmax_i F_i(x)$$
@@ -26,18 +27,28 @@ description: >-
 * $$G:\Omega\rightarrow\mathbb{R}^C$$, feature map $$\psi(x)$$를 $$Class(x)$$로 매핑하는 함수
 * $$\mathcal{P}$$: $$G$$의 linear boundaries(hyperplanes)의 집합
 
-### Problem
+### Representaitive Interpretation
 
-* Representative Interpretation이란?
-  * x에 대한 representative interpretation은&#x20;
-* Finding representative interpretations
-  * to find a subset of the linear boundaries $$P(x)\subseteq\mathcal{P}$$ with the largest representativeness
-  *   Condition 1: maximize the representativeness of $$P(x)$$
+문제를 formulation하기 앞서 representative interpretation을 찾는다는 것의 목표를 구체화할 필요가 있다.
 
-      → maximize $$|P(x)\cap R|$$
-  *   Condition 2: avoid covering images in different classes
+*   \[Representative interpretation]&#x20;
 
-      → $$|P(x)\cap D(x)|=0$$ where $$D(x)=\{x'\in R\;|\;Class(x')\neq Class(x)\}$$
+    이미지 $$x\in\mathcal{X}$$에 대한 representative interpretation은 $$x$$에 대한 모델 $$F$$의 일반적인 의사결정을 드러내는 해석을 의미한다.
+* &#x20;학습된 DNN 모델의 예측을 feature map을 통해 분석할 때, 많은 현존하는 연구에서 마지막 layer로부터 최종 class로의 매핑인 $$G$$를 이용하여 의사결정 로직을 설명한다.
+*   \[Linear boundaries]
+
+    $$G$$로 인한 의사결정 과정은 연결 hyperplanes의 조각들로 구성된 piecewise linear decsion boundary로 특징지어질 수 있다.
+*
+
+### Finding Representative Interpretations
+
+* to find a subset of the linear boundaries $$P(x)\subseteq\mathcal{P}$$ with the largest representativeness
+*   Condition 1: maximize the representativeness of $$P(x)$$
+
+    → maximize $$|P(x)\cap R|$$
+*   Condition 2: avoid covering images in different classes
+
+    → $$|P(x)\cap D(x)|=0$$ where $$D(x)=\{x'\in R\;|\;Class(x')\neq Class(x)\}$$
 * Co-clustering problem
 
 $$
