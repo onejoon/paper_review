@@ -48,9 +48,11 @@ description: >-
 * $$\cal P$$의 linear boundaries는 feature map space $$\Omega$$를 convex polytopes로 나눈다. 각각의 convex polytope는 해당 지역 안에 있는 이미지들을 동일한 class로 분류하는 decision region을 정의한다.
 * 따라서 $$\cal P$$의 부분집합으로부터 $$x$$를 포함한 decision region을 잘 정의하는 것이 representative interpretation을 제공한다. 즉, 좋은 representative interpretation에 대응되는 $$P(x)\subseteq\mathcal{P}$$를 찾는 것이 목표이다.
 
-> \[Goal]
->
-> 각 image $$x$$에 대하여 좋은 representative interpretation이 될 수 있는 decision region $$P(x)\subseteq\mathcal{P}$$를 찾자.
+{% hint style="info" %}
+\[Goal]&#x20;
+
+각 image $$x$$에 대하여 좋은 representative interpretation이 될 수 있는 decision region $$P(x)\subseteq\mathcal{P}$$를 찾자.
+{% endhint %}
 
 
 
@@ -81,24 +83,21 @@ $$
 
 ### Related Work
 
-There are various types of existing interpretation methods for CNNs.
+CNN의 로직을 설명하기 위한 다양한 해석기법들이 연구되어 왔다.
 
-1. Gradient-baed methods
-   * Compute and visualize the gradient of the score of a predicted class w.r.t. an input image.
-   * Such interpretations are not representative due to high sensitivity to the input noise.
-2. Model approximation methods
-   * Approximate a deep neural network locally or globally with an interpretable agent model.
-   * Most of those methods perform poorly on modern CNNs trained on complicated data.
-3. Conceptual interpretation methods
-   * identify a set of concepts that contribute to the predictions on a pre-defined group of conceptually similar images.
-   * These methods require sophisticated customization on deep neural networks.
-4. Example-based methods
+1. Conceptual interpretation methods
+
+* identify a set of concepts that contribute to the predictions on a pre-defined group of conceptually similar images.
+* These methods require sophisticated customization on deep neural networks.
+
+1. Example-based methods
    * Find exemplar images to interpret the decision of a deep neural network.
    * Prototype-based methods summarize the entire model using a small number of instances as prototypes.
    * The selection of prototypes considers little about the decision process of the model.
 
 ### Idea
 
+* 학습된 CNN의 decision logic을 encode하는 decision region을 찾자.
 * Find the linear decision boundaries of the convex polytopes that encode the decision logic of a trained CNN
 * Convert the co-clustering problem into a submodular cost submodular cover (SCSC) problem
 
