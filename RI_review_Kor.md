@@ -189,13 +189,17 @@ Reference dataset으로 계산된 interpretations가 unseen dataset에 대한 �
 *   $$Y_c(e)$$: 이미지 $$e\in S$$에 대한 class $$c$$ 예측 점수
 *   $$e'$$: 가장 중요한 20%의 pixels만을 남긴 masked image
 
-따라서 AD는 방법론이 가리키는 중요한 부분만을 남겼을 때 저하되는 예측률을, AI는 중요한 부분만을 남겼을 때 예측률이 상승한 샘플의 비율을 의미한다. mean AD(mAD)가 작고 mean AI(mAI)가 클수록, interpretations가 보지못했던 데이터에 대해서도 유효하게 쓰일 수 있음을 나타낸다.
+따라서 AD는 방법론이 가리키는 중요한 부분만을 남겼을 때 저하되는 예측률을, AI는 중요한 부분만을 남겼을 때 예측률이 상승한 샘플의 비율을 의미한다. mean AD(mAD)가 작고 mean AI(mAI)가 클수록, interpretations가 보지못했던 데이터에 대해서도 유효하게 쓰일 수 있음을 나타낸다. 아래의 표를 보면, 대부분의 상황에서 RI method가 가장 좋은 성능을 갖는다는 것이 보여졌다.
 
 
 
 ![](.gitbook/assets/quant\_exp.png)
 
 ## 5. Conclusion
+
+* 이 논문에서는 CNN의 의사결정 과정을 해석하기 위해 decision boundaries를 고려한 co-clustering problem을 제시하였다.
+* Co-cluster problem을 풀기 위해 SCSC problem으로 치환하여 greedy algorithm을 적용할 수 있게 만들었다.
+* 계산한 representative interpretations이 common semantics를 잘 반영한다는 것을 실험적으로 보여주었다.
 
 ### Take home message
 
