@@ -97,7 +97,7 @@ CNN의 로직을 설명하기 위한 다양한 해석기법들이 연구되어 �
 
 * 학습된 CNN의 decision logic을 encode하여 interpretation을 제공하는 decision region을 찾자.
 * 이 문제를 이전 Section에서 co-clustering problem으로 formulation하였다.
-* Co-clustering problem을 submodular cost submodular cover(SCSC) problem으로 치환하여 최적화 문제를 풀 수 있도록 제안한다.
+* Co-clustering problem을 submodular cost submodular cover(SCSC) problem으로 치환하여 최적화 문제를 풀 수 있도록(feasible) 제안한다.
 
 ## 3. Method
 
@@ -109,7 +109,7 @@ Section 1에서 소개한 co-clustering problem과 같은 set optimization probl
 {% hint style="info" %}
 Submodular Optimization이란?
 
-* 최적의 set을 찾아야하는 set optimization 문제는 후보군들의 갯수가 많아질수록 경우의 수가 기하급수적으로 증가하기 때문에 매우 복잡한 문제가 된다.
+* 최적의 set을 찾아야하는 set optimization 문제는 후보군들의 수가 많아질수록 경우의 수가 기하급수적으로 증가하기 때문에 매우 복잡한 문제가 된다.
 * 목적함수가 submodularity 성질을 만족하면, greedy algorithm을 통해 얻은 해가 적어도 실제 optimal solution의 성능의 일부분을 보장한게 된다. (The greedy algorithm achieves at least a constant fraction of the objective value obtained by the optimal solution.)
 * 따라서, submodular optimization은 어느정도 성능을 보장하면서 동시에 거대하고 복잡한 set optimization 문제를 feasible하게 다룰 수 있게 해준다.
 * Submodularity는 diminishing return property를 요구하는데, 자세한 내용은 [여기](https://en.wikipedia.org/wiki/Submodular\_set\_function)에서 확인할 수 있다.
@@ -175,7 +175,21 @@ Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가�
 
 #### Quantitative Experiment
 
+Reference dataset으로 계산된 interpretations가 unseen dataset에 대한 예측을 해석하는데 얼마나 잘 쓰일 수 있는지 정량적으로 비교하였다. 이를 위해 두가지 지표를 설정하였다.
 
+*   Average Drop (AD)
+
+    \$$
+
+    \frac{1}{|S|}\sum\_{e\in S}\frac{\max(0,Y\_c(e)-Yc(e'))}{Yc(e)}
+
+    \$$
+*
+*
+
+
+
+![](.gitbook/assets/quant\_exp.png)
 
 ## 5. Conclusion
 
