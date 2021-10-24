@@ -133,8 +133,6 @@ $$
 
 ![The greedy algorithm to find representative interpretations.](.gitbook/assets/greedy\_alg.png)
 
-
-
 ### Ranking Similar Images
 
 Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가하기 위해서, 새로운 semantic distance를 다음과 같이 정의한다.
@@ -147,8 +145,6 @@ Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가�
 * $$\overrightarrow{W}_\mathbf{h}$$ 는 linear boundary $$\mathbf{h}\in P(x)$$에 대응하는 hyperplane의 normal vector이다.
 * 즉, 이미지 $$x'$$가 $$P(x)$$에 포함된 각각의 hyperplane을 $$x$$와 비교하여 얼마나 멀어지려하는지 측정하는 척도이다.
 * 이 semantic distance를 이용하여 오름차순으로 $$P(x)$$에 의해 커버되는 이미지들을 랭킹한다.
-
-
 
 ## 4. Experiment & Result
 
@@ -178,20 +174,20 @@ Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가�
 Reference dataset으로 계산된 interpretations가 unseen dataset에 대한 예측을 해석하는데 얼마나 잘 쓰일 수 있는지 정량적으로 비교하였다. 이를 위해 두가지 지표를 설정하였다.
 
 *   Average Drop (AD)
+
     $$
     \frac{1}{|S|}\sum_{e\in S}\frac{\max(0,Y_c(e)-Y_c(e'))}{Y_c(e)}
     $$
 *   Average Increase (AI)
+
     $$
     \frac{1}{|S|}\sum_{e\in S}\mathbb{1}_{Y_c(e)<Y_c(e')}
     $$
-*   $$S\subseteq \mathcal{X}$$: unseen images 집합
-*   $$Y_c(e)$$: 이미지 $$e\in S$$에 대한 class $$c$$ 예측 점수
-*   $$e'$$: 가장 중요한 20%의 pixels만을 남긴 masked image
+* $$S\subseteq \mathcal{X}$$: unseen images 집합
+* $$Y_c(e)$$: 이미지 $$e\in S$$에 대한 class $$c$$ 예측 점수
+* $$e'$$: 가장 중요한 20%의 pixels만을 남긴 masked image
 
 따라서 AD는 방법론이 가리키는 중요한 부분만을 남겼을 때 저하되는 예측률을, AI는 중요한 부분만을 남겼을 때 예측률이 상승한 샘플의 비율을 의미한다. mean AD(mAD)가 작고 mean AI(mAI)가 클수록, interpretations가 보지못했던 데이터에 대해서도 유효하게 쓰일 수 있음을 나타낸다. 아래의 표를 보면, 대부분의 상황에서 RI method가 가장 좋은 성능을 갖는다는 것이 보여졌다.
-
-
 
 ![](.gitbook/assets/quant\_exp.png)
 
@@ -199,9 +195,11 @@ Reference dataset으로 계산된 interpretations가 unseen dataset에 대한 �
 
 * 이 논문에서는 CNN의 의사결정 과정을 해석하기 위해 decision boundaries를 고려한 co-clustering problem을 제시하였다.
 * Co-cluster problem을 풀기 위해 SCSC problem으로 치환하여 greedy algorithm을 적용할 수 있게 만들었다.
-* 계산한 representative interpretations이 common semantics를 잘 반영한다는 것을 실험적으로 보여주었다.
+* 계산한 representative interpretations common semantics를 잘 반영한다는 것을 실험적으로 보여주었다.
 
 ### Take home message
+
+> Deep neural networks가 다양한 분야에서 쓰임에 따라 의사결정 로직을 해석하는 것 매우 중요해졌다. 때문에 decision boundary를 고려하여 해석성을 제시하려는 접근이 인상적이었고, 이러한 연구가 더 확장되길 바란다.&#x20;
 
 ## Author / Reviewer information
 
