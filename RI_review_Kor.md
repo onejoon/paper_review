@@ -86,12 +86,11 @@ $$
 CNN의 로직을 설명하기 위한 다양한 해석기법들이 연구되어 왔다.
 
 1. Conceptual interpretation methods
-
-* identify a set of concepts that contribute to the predictions on a pre-defined group of conceptually similar images.
-* These methods require sophisticated customization on deep neural networks.
-
-1. Example-based methods
-   * Find exemplar images to interpret the decision of a deep neural network.
+   * 컨셉적으로 비슷한 이미지들로 사전에 정의된 그룹에서 예측에 기여하는 컨셉들의 집합을 찾는 방법이다.
+   * 그러나 이 방법은 DNN에 복잡한 customization을 요구하기 때문에 일반적인 CNN에 범용적으로 적용하기 어렵다.
+2. Example-based methods
+   * DNN의 의사결정을 해석하기 위해 모범 이미지(exemplar images)를 찾는다.
+   * Prototype-based methods는 ㄴ
    * Prototype-based methods summarize the entire model using a small number of instances as prototypes.
    * The selection of prototypes considers little about the decision process of the model.
 
