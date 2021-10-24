@@ -90,15 +90,16 @@ CNN의 로직을 설명하기 위한 다양한 해석기법들이 연구되어 �
    * 그러나 이 방법은 DNN에 복잡한 customization을 요구하기 때문에 일반적인 CNN에 범용적으로 적용하기 어렵다.
 2. Example-based methods
    * DNN의 의사결정을 해석하기 위해 모범 이미지(exemplar images)를 찾는다.
-   * Prototype-based methods는 ㄴ
-   * Prototype-based methods summarize the entire model using a small number of instances as prototypes.
-   * The selection of prototypes considers little about the decision process of the model.
+   * Prototype-based methods는 prototypes라 불리는 적은 수의 instances를 사용하여 전체 모델을 요약한다.
+   * Prototype selection 방법은 모델의 의사결정 과정에 대한 고려가 부족할 수 있다.
 
 ### Idea
 
-* 학습된 CNN의 decision logic을 encode하는 decision region을 찾자.
-* Find the linear decision boundaries of the convex polytopes that encode the decision logic of a trained CNN
-* Convert the co-clustering problem into a submodular cost submodular cover (SCSC) problem
+이 논문은 일반적은 CNN 모델에서 decision boundaries를 고려하여 의사결정에 대한 대표적인 해석성을 제공하는 것을 목표로 한다.
+
+* 학습된 CNN의 decision logic을 encode하여 interpretation을 제공하는 decision region을 찾자.
+* 이 문제를 이전 Section에서 co-clustering problem으로 formulation하였다.
+* Co-clustering problem을 submodular cost submodular cover(SCSC) problem으로 치환하여 최적화 문제를 풀 수 있도록 제안한다.
 
 ## 3. Method
 
