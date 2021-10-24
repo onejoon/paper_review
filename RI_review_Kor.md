@@ -160,9 +160,22 @@ Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가�
 * 위의 방법들은 channel weights를 이용하여 해석성을 제공한다. $$x\in\mathcal{X}$$에 대하여, 동일한 channel weights를 쓰면서 비슷한 이미지 $$x_{new}$$에 대해 heat map이 어떻게 보여지는지 비교한다.
   * RI의 경우, 비슷한 이미지 $$x_{new}$$를 정의하기 위헤 semantic distance를 사용한다.
   * 다른 방법의 경우, 비슷한 이미지 $$x_{new}$$를 정의하기 위해 feature map space $$\Omega$$ 상에서의 Euclidean distance를 사용한다.
-* 데이터셋은 GC dataset을 사용하였다.
+* 데이터셋은 Gender Classification (GC), ASIRRA, Rentinal OCT Images (RO), FOOD datasets 사용하였다.
+* 해석할 타겟 모델로 VGG-19를 학습하였다.
 
 ### Result
+
+#### Case Study
+
+* 각 방법론이 비슷한 이미지에 대한 해석성을 적절히 제공하는지 비교한 실험이다.
+* 첫번째 행은 RI method의 결과를 보여준다. 다른 방법들과 달리, 주어진 이미지에 대해서 표시된 heat map이 비슷한 이미지들에 대해서도 동일하게 표시된다.
+* RI method는 co-clustering problem을 풀어 같은 interpretation을 공유하는 이미지를 성공적으로 찾아내고, 모델이 그 이미지들을 어떻게 해석하는지 잘 보여준다.
+
+![A case study on the GC dataset.](.gitbook/assets/case\_study.png)
+
+#### Quantitative Experiment
+
+
 
 ## 5. Conclusion
 
