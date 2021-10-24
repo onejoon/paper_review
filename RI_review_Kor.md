@@ -36,7 +36,7 @@ description: >-
     이미지 $$x\in\mathcal{X}$$에 대한 representative interpretation은 $$x$$에 대한 모델 $$F$$의 일반적인 의사결정을 드러내는 해석을 의미한다.
 * 학습된 DNN 모델의 예측을 feature map을 통해 분석할 때, 많은 현존하는 연구에서 마지막 layer로부터 최종 class로의 매핑인 $$G$$를 이용하여 의사결정 로직을 설명한다.
 
-(Figure)
+![Decision logic of a CNN](.gitbook/assets/cnn\_decision\_logic.png)
 
 *   \[Linear boundaries]
 
