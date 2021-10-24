@@ -125,29 +125,42 @@ $$
 
 * 함수 $$G$$로부터 linear boundaries의 집합 $$\cal P$$를 구성하는 방법은 [다음 논문](https://dl.acm.org/doi/abs/10.1145/3219819.3220063?casa\_token=MojIMpYRbLcAAAAA:19vihLVFk09s\_3zS1mtVpaxYvX7Cor5Fbkvso6UlSJYhW\_qPkO2oM7MCKIqJrTZ\_GgQsPeNgC8RK)을 참조한다.
 * $$\cal P$$로부터 $$\cal Q$$를 sampling한다.
-*   모든 linear boundaries를 사용하는 대신에 부분집합인 $$\cal Q$$만을 후보군으로 두어 최적화하기 때문에, 같은 convex polytope(decision region)에 속한 이미지 중에서 다른 class로 예측되는 경우가 발생할 수 있다. &#x20;
+*   모든 linear boundaries를 사용하는 대신에 부분집합인 $$\cal Q$$만을 후보군으로 두어 최적화하기 때문에, 같은 convex polytope(decision region)에 속한 이미지 중에서 다른 class로 예측되는 경우가 발생할 수 있다.
 
-    \->  $$|P(x)\cap D(x)|=0$$을 relax하여 제약조건을 $$|P(x)\cap D(x)|\leq\delta$$​로 바꾸어준다.
+    \-> $$|P(x)\cap D(x)|=0$$을 relax하여 제약조건을 $$|P(x)\cap D(x)|\leq\delta$$​로 바꾸어준다.
 * 이렇게 formulation한 문제의 목적함수와 제약조건은 submodular cost와 submodular cover 조건을 만족한다. 이에 대한 확인은 [본 논문](https://openaccess.thecvf.com/content/ICCV2021/html/Lam\_Finding\_Representative\_Interpretations\_on\_Convolutional\_Neural\_Networks\_ICCV\_2021\_paper.html)의 Appendix A를 참조하길 바란다.
 * 결론적으로, 이 SCSC problem은 다음과 같은 greedy algorithm에 의해 순차적으로 linear boundary를 선택함으로써 해를 얻을 수 있다.
+
+![The greedy algorithm to find representative interpretations.](.gitbook/assets/greedy\_alg.png)
 
 
 
 ### Ranking Similar Images
+
+Decision region $$P(x)$$에 의해 포함되는 이미지($$x'$$)들을 평가하기 위해서, 새로운 semantic distance를 다음과 같이 정의한다.
 
 *   Semantic distance
 
     $$
     Dist(x.x')=\sum_{\mathbf{h}\in P(x)}\Big\vert \langle \overrightarrow{W}_\mathbf{h},\psi(x)\rangle -\langle \overrightarrow{W}_\mathbf{h},\psi(x')\rangle \Big\vert
     $$
-* $$\overrightarrow{W}_\mathbf{h}$$ is the normal vector of the hyperplane of a linear boundary $$\mathbf{h}\in P(x)$$
-* rank the images covered by $$P(x)$$ according to their semantic distance to $$x$$ in ascending order
+* $$\overrightarrow{W}_\mathbf{h}$$ 는 linear boundary $$\mathbf{h}\in P(x)$$에 대응하는 hyperplane의 normal vector이다.
+* 즉, 이미지 $$x'$$가 $$P(x)$$에 포함된 각각의 hyperplane을 $$x$$와 비교하여 얼마나 멀어지려하는지 측정하는 척도이다.
+* 이 semantic distance를 이용하여 오름차순으로 $$P(x)$$에 의해 커버되는 이미지들을 랭킹한다.
+
+
 
 ## 4. Experiment & Result
 
-![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%202.png)
-
 ### Experimental setup
+
+저자는 representative interpretation (RI) method와 Automatic Concept-based Explanation(ACE), CAM-based methods(Grad-CAM, Grad-CAM++, Score-CAM)을 비교하였다.
+
+* $$|\mathcal{Q}|=50$$​으로 샘플링되었다.
+* 위의 방법들은 channel weights를 이용하여 해석성을 제공한다. $$x\in\mathcal{X}$$에 대하여, 동일한 channel weights를 쓰면서 비슷한 이미지 $$x_{new}$$에 대해 heat map이 어떻게 보여지는지 비교한다.
+  * RI의 경우, 비슷한 이미지 $$x_{new}$$를 정의하기 위헤 semantic distance를 사용한다.
+  * 다른 방법의 경우, 비슷한 이미지 $$x_{new}$$를 정의하기 위해 feature map space $$\Omega$$ 상에서의 Euclidean distance를 사용한다.
+* 데이터셋은 GC dataset을 사용하였다.
 
 ### Result
 
