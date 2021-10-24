@@ -10,8 +10,8 @@ description: >-
 
 ## 1. Problem definition
 
-* 최근 다양한 영역에서 딥러닝 기반의 인공지능 모델들이 성공적인 성능을 보이고 있지만, Deep convolutional neural networks(CNNs)의 의사결정 과정에 대한 해석은 아직 부족하다. 이에 대한 충분한 해석성이 제공되어야 딥러닝 모델들을 신뢰가능하게 만들 수 있을 것이다.
-* 이 논문에서는 비슷한 예측을 갖는 관련 높은 데이터들을 대표하는 common semantics를 알아내기 위해 representative interpretations를 찾고자 한다. 즉, representative interpretations는 CNN의 의사결정 과정에서 구분되는 대표적인 특징 그룹을 보여준다.
+* 최근 다양한 영역에서 딥러닝 기반의 인공지능 모델들이 성공적인 성능을 보이고 있지만, **Deep convolutional neural networks(CNNs)의 의사결정 과정에 대한 해석은 아직 부족**하다. 이에 대한 충분한 해석성이 제공되어야 딥러닝 모델들을 신뢰가능하게 만들 수 있을 것이다.
+* 이 논문에서는 비슷한 예측을 갖는 관련 높은 데이터들을 대표하는 **common semantics를 알아내기 위해 representative interpretations를 찾고자** 한다. 즉, representative interpretations는 CNN의 의사결정 과정에서 구분되는 대표적인 특징 그룹을 보여준다.
 * 어떻게 학습된 CNN으로부터 이러한 representative interpretations를 찾을 수 있을까?
 
 ### Notation
@@ -26,6 +26,10 @@ description: >-
 * $$\Omega=\{\psi(x)\;|\;x\in\mathcal{X} \}$$ feature map 공간
 * $$G:\Omega\rightarrow\mathbb{R}^C$$, feature map $$\psi(x)$$를 $$Class(x)$$로 매핑하는 함수
 * $$\mathcal{P}$$: $$G$$의 linear boundaries(hyperplanes)의 집합
+
+{% hint style="info" %}
+* Reference images는 이 방법을 통해 해석하고 싶은 unlabeled images를 가리킨다.
+{% endhint %}
 
 ### Representaitive Interpretation
 
@@ -44,22 +48,34 @@ description: >-
 * $$\cal P$$의 linear boundaries는 feature map space $$\Omega$$를 convex polytopes로 나눈다. 각각의 convex polytope는 해당 지역 안에 있는 이미지들을 동일한 class로 분류하는 decision region을 정의한다.
 * 따라서 $$\cal P$$의 부분집합으로부터 $$x$$를 포함한 decision region을 잘 정의하는 것이 representative interpretation을 제공한다. 즉, 좋은 representative interpretation에 대응되는 $$P(x)\subseteq\mathcal{P}$$를 찾는 것이 목표이다.
 
+> \[Goal]
+>
+> 각 image $$x$$에 대하여 좋은 representative interpretation이 될 수 있는 decision region $$P(x)\subseteq\mathcal{P}$$를 찾자.
+
+
+
 ### Finding Representative Interpretations
 
-* to find a subset of the linear boundaries $$P(x)\subseteq\mathcal{P}$$ with the largest representativeness
-*   Condition 1: maximize the representativeness of $$P(x)$$
+'좋은' representative interpretations란 무엇일까? 이는 다음과 같은 두가지 조건을 만족해야한다.
 
-    → maximize $$|P(x)\cap R|$$
-*   Condition 2: avoid covering images in different classes
+1.  $$P(x)$$의 representativeness를 최대화해야 한다.
+
+    \-> Decision region $$P(x)$$가 최대한 많은 reference images를 커버해야한다.
+
+    \-> maximize $$|P(x)\cap R|$$
+2.  &#x20;$$x$$와 다른 class에 속하는 이미지들을 포함하지 않아야 한다.
 
     → $$|P(x)\cap D(x)|=0$$ where $$D(x)=\{x'\in R\;|\;Class(x')\neq Class(x)\}$$
+
+이는 다음과 같은 최적화 문제로 표현할 수 있다.
+
 * Co-clustering problem
 
 $$
 \max_{P(x)\subseteq\mathcal{P}}|P(x)\cap R|\\ \mathsf{s.t.}\quad|P(x)\cap D(x)|=0
 $$
 
-![Figure 1. Finding the optimal subset of linear boundaries](.gitbook/assets/RI\_cnn\_prob\_def.png)
+![Finding the optimal subset of linear boundaries](.gitbook/assets/RI\_cnn\_prob\_def.png)
 
 ## 2. Motivation
 
@@ -121,12 +137,24 @@ $$
 
 ### Take home message
 
+
+
 ## Author / Reviewer information
 
 ### Author
 
+**장원준 (Wonjoon Chang)**
+
+* KAIST AI
+* one\_jj@kaist.ac.kr
+
 ### Reviewer
 
+*
+
 ## Reference & Additional materials
+
+1. Lam, Peter Cho-Ho, et al. "Finding representative interpretations on convolutional neural networks." _Proceedings of the IEEE/CVF International Conference on Computer Vision_. 2021.
+2.
 
 ***
