@@ -129,7 +129,7 @@ $$
 
     \->  $$|P(x)\cap D(x)|=0$$을 relax하여 제약조건을 $$|P(x)\cap D(x)|\leq\delta$$​로 바꾸어준다.
 * 이렇게 formulation한 문제의 목적함수와 제약조건은 submodular cost와 submodular cover 조건을 만족한다. 이에 대한 확인은 [본 논문](https://openaccess.thecvf.com/content/ICCV2021/html/Lam\_Finding\_Representative\_Interpretations\_on\_Convolutional\_Neural\_Networks\_ICCV\_2021\_paper.html)의 Appendix A를 참조하길 바란다.
-* &#x20;
+* 결론적으로, 이 SCSC problem은 다음과 같은 greedy algorithm에 의해 순차적으로 linear boundary를 선택함으로써 해를 얻을 수 있다.
 
 
 
