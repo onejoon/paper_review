@@ -35,7 +35,7 @@ description: >-
 
 문제를 formulation하기 앞서 representative interpretation을 찾는다는 목표구체화할 필요가 있다.
 
-*   \[Representative interpretation]&#x20;
+*   \[Representative interpretation]
 
     이미지 $$x\in\mathcal{X}$$에 대한 representative interpretation은 $$x$$에 대한 모델 $$F$$의 일반적인 의사결정을 드러내는 해석을 의미한다.
 * 학습된 DNN 모델의 예측을 feature map을 통해 분석할 때, 많은 현존하는 연구에서 마지막 layer로부터 최종 class로의 매핑인 $$G$$를 이용하여 의사결정 로직을 설명한다.
@@ -49,12 +49,10 @@ description: >-
 * 따라서 $$\cal P$$의 부분집합으로부터 $$x$$를 포함한 decision region을 잘 정의하는 것이 representative interpretation을 제공한다. 즉, 좋은 representative interpretation에 대응되는 $$P(x)\subseteq\mathcal{P}$$를 찾는 것이 목표이다.
 
 {% hint style="info" %}
-\[Goal]&#x20;
+\[Goal]
 
 각 image $$x$$에 대하여 좋은 representative interpretation이 될 수 있는 decision region $$P(x)\subseteq\mathcal{P}$$를 찾자.
 {% endhint %}
-
-
 
 ### Finding Representative Interpretations
 
@@ -65,7 +63,7 @@ description: >-
     \-> Decision region $$P(x)$$가 최대한 많은 reference images를 커버해야한다.
 
     \-> maximize $$|P(x)\cap R|$$
-2.  &#x20;$$x$$와 다른 class에 속하는 이미지들을 포함하지 않아야 한다.
+2.  $$x$$와 다른 class에 속하는 이미지들을 포함하지 않아야 한다.
 
     → $$|P(x)\cap D(x)|=0$$ where $$D(x)=\{x'\in R\;|\;Class(x')\neq Class(x)\}$$
 
@@ -103,6 +101,20 @@ CNN의 로직을 설명하기 위한 다양한 해석기법들이 연구되어 �
 
 ## 3. Method
 
+Section 1에서 소개한 co-clustering problem과 같은 set optimization problem은 실제로 풀기에 매우 복잡한 문제이다. 때문에 이 논문에서는,
+
+1. Sampling을 통해 $$\cal P$$를 $$\cal Q$$로 사이즈를 줄인 부분집합을 사용하고;
+2. $$\cal Q$$에 대해 submodular optimization 문제를 정의하여 문제를 풀 수 있도록 치환한다.
+
+{% hint style="info" %}
+Submodular Optimization이란?
+
+* 최적의 set을 찾아야하는 set optimization 문제는 후보군들의 갯수가 많아질수록 경우의 수가 기하급수적으로 증가하기 때문에 매우 복잡한 문제가 된다.
+* 목적함수가 submodularity 성질을 만족하면, greedy algorithm을 통해 얻은 해가 적어도 실제 optimal solution의 성능의 일부분을 보장한게 된다. (The greedy algorithm achieves at least a constant fraction of the objective value obtained by the optimal solution.)
+* 따라서, submodular optimization은 어느정도 성능을 보장하면서 동시에 거대하고 복잡한 set optimization 문제를 feasible하게 다룰 수 있게 해준다.
+* Submodularity는 diminishing return property를 요구하는데, 자세한 내용은 [여기](https://en.wikipedia.org/wiki/Submodular\_set\_function)에서 확인할 수 있다.
+{% endhint %}
+
 ### Submodular Cost Submodular Cover problem
 
 * SCSC problem
@@ -135,8 +147,6 @@ $$
 ## 5. Conclusion
 
 ### Take home message
-
-
 
 ## Author / Reviewer information
 
