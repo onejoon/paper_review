@@ -123,8 +123,15 @@ $$
 \max_{P(x)\subseteq\mathcal{Q}}|P(x)\cap R|\\ \mathsf{s.t.}\quad|P(x)\cap D(x)|\leq\delta
 $$
 
-* sample a subset of linear boundaries $$\cal Q$$ from $$\cal P$$
-* due to sampling, the images covered in the same convex polytope may not be predicted by $$F$$ as the same class → $$\delta$$ \*- We can apply a greedy algorithm for a SCSC problem. ![Untitled](\[Review]%20Finding%20Representative%20Interpretations%20on%20cbb5f8a3e3c94badb112bb7164bafb3a/Untitled%201.png)
+* 함수 $$G$$로부터 linear boundaries의 집합 $$\cal P$$를 구성하는 방법은 [다음 논문](https://dl.acm.org/doi/abs/10.1145/3219819.3220063?casa\_token=MojIMpYRbLcAAAAA:19vihLVFk09s\_3zS1mtVpaxYvX7Cor5Fbkvso6UlSJYhW\_qPkO2oM7MCKIqJrTZ\_GgQsPeNgC8RK)을 참조한다.
+* $$\cal P$$로부터 $$\cal Q$$를 sampling한다.
+*   모든 linear boundaries를 사용하는 대신에 부분집합인 $$\cal Q$$만을 후보군으로 두어 최적화하기 때문에, 같은 convex polytope(decision region)에 속한 이미지 중에서 다른 class로 예측되는 경우가 발생할 수 있다. &#x20;
+
+    \->  $$|P(x)\cap D(x)|=0$$을 relax하여 제약조건을 $$|P(x)\cap D(x)|\leq\delta$$​로 바꾸어준다.
+* 이렇게 formulation한 문제의 목적함수와 제약조건은 submodular cost와 submodular cover 조건을 만족한다. 이에 대한 확인은 [본 논문](https://openaccess.thecvf.com/content/ICCV2021/html/Lam\_Finding\_Representative\_Interpretations\_on\_Convolutional\_Neural\_Networks\_ICCV\_2021\_paper.html)의 Appendix A를 참조하길 바란다.
+* &#x20;
+
+
 
 ### Ranking Similar Images
 
@@ -164,6 +171,7 @@ $$
 ## Reference & Additional materials
 
 1. Lam, Peter Cho-Ho, et al. "Finding representative interpretations on convolutional neural networks." _Proceedings of the IEEE/CVF International Conference on Computer Vision_. 2021.
-2.
+2. [https://en.wikipedia.org/wiki/Submodular\_set\_function](https://en.wikipedia.org/wiki/Submodular\_set\_function)
+3. Chu, Lingyang, et al. "Exact and consistent interpretation for piecewise linear neural networks: A closed form solution." _Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining_. 2018.
 
 ***
