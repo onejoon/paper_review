@@ -87,7 +87,7 @@ Reference images는 이 방법을 통해 해석하고 싶은 unlabeled images를
 *   학습된 DNN 모델의 예측을 feature map을 통해 분석할 때, 많은 현존하는 연구에서 마지막 convolutional layer로부터 최종 class로의 매핑인 $$G$$를 이용하여 의사결정 로직을 설명한다.
 *   $$G$$는 piecewise linear function이기 때문에, **linear boundaries로 구분된 구역에 따라 의사결정을 해석**할 수 있다. 자세한 내용은 [다음 논문](https://dl.acm.org/doi/abs/10.1145/3219819.3220063?casa\_token=MojIMpYRbLcAAAAA:19vihLVFk09s\_3zS1mtVpaxYvX7Cor5Fbkvso6UlSJYhW\_qPkO2oM7MCKIqJrTZ\_GgQsPeNgC8RK)을 참조하길 권한다.
 
-![Decision logic of a CNN](../../.gitbook/assets/23/cnn\_decision\_logic.png)
+![Decision logic of a CNN](../../.gitbook/assets/cnn\_decision\_logic.png)
 
 \[Linear boundaries]
 
@@ -123,7 +123,7 @@ $$
 \max_{P(x)\subseteq\mathcal{P}}|P(x)\cap R|\\ \mathsf{s.t.}\quad|P(x)\cap D(x)|=0
 $$
 
-![Finding the optimal subset of linear boundaries](../../.gitbook/assets/23/RI\_cnn\_prob\_def.png)
+![Finding the optimal subset of linear boundaries](../../.gitbook/assets/RI\_cnn\_prob\_def.png)
 
 
 
@@ -164,7 +164,7 @@ $$
 
 * 결론적으로, 이 SCSC problem은 다음과 같은 greedy algorithm에 의해 순차적으로 linear boundary를 선택함으로써 해를 얻을 수 있다.
 
-![The greedy algorithm to find representative interpretations.](../../.gitbook/assets/23/greedy\_alg.png)
+![The greedy algorithm to find representative interpretations.](../../.gitbook/assets/greedy\_alg.png)
 
 ### Ranking Similar Images
 
@@ -180,7 +180,7 @@ $$
 *   즉, 이미지 $$x'$$가 $$P(x)$$에 포함된 각각의 hyperplane을 $$x$$와 비교하여 얼마나 멀어지려하는지 측정하는 척도이다. 이는 Euclidean distance와 달리, decision region을 벗어나는 척도로 생각할 수 있다.
 *   이 semantic distance를 이용하여 오름차순으로 $$P(x)$$에 의해 커버되는 이미지들을 랭킹한다.
 
-![Semantic distances are different in terms of the decision region.](../../.gitbook/assets/23/semantic\_dist.png)
+![Semantic distances are different in terms of the decision region.](../../.gitbook/assets/semantic\_dist.png)
 
 Semantic distance에 대한 이해를 돕기 위한 예시이다. $$x_1,x_2$$는 $$x$$와 같은 Euclidean distance만큼 떨어져있지만, decision region 관점에서 semantic distance를 계산하면 $$x_2$$와 $$x$$의 거리가 더 먼 것으로 측정된다.
 
@@ -205,7 +205,7 @@ Semantic distance에 대한 이해를 돕기 위한 예시이다. $$x_1,x_2$$는
 * 첫번째 행은 RI method의 결과를 보여준다. 다른 방법들과 달리, 주어진 이미지에 대해서 표시된 heat map이 비슷한 이미지들에 대해서도 동일하게 표시된다.
 * RI method는 co-clustering problem을 풀어 같은 interpretation을 공유하는 이미지들을 성공적으로 찾아내고, 모델이 그 이미지들을 어떻게 해석하는지 잘 보여준다.
 
-![A case study on the GC dataset.](../../.gitbook/assets/23/case\_study.png)
+![A case study on the GC dataset.](../../.gitbook/assets/case\_study.png)
 
 #### Quantitative Experiment
 
@@ -228,7 +228,7 @@ $$
 
 따라서 AD는 방법론이 가리키는 중요한 부분만을 남겼을 때 저하되는 예측률을, AI는 중요한 부분만을 남겼을 때 예측률이 상승한 샘플의 비율을 의미한다. mean AD(mAD)가 작고 mean AI(mAI)가 클수록, interpretations가 보지못했던 데이터에 대해서도 유효하게 쓰일 수 있음을 나타낸다. 아래의 표를 보면, 대부분의 상황에서 RI method가 가장 좋은 성능을 갖는다는 것이 보여졌다.
 
-![Quantative results.](../../.gitbook/assets/23/quant\_exp.png)
+![Quantative results.](../../.gitbook/assets/quant\_exp.png)
 
 ## 5. Conclusion
 
